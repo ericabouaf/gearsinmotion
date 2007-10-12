@@ -1,63 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html>
  <head>
-  <title>GearsInMotion v0.2</title>
+  <title>GearsInMotion v0.2 demo</title>
 
 <!--CSS file (default YUI Sam Skin) -->
-<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/datatable/assets/skins/sam/datatable.css">
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/datatable/assets/skins/sam/datatable.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/container/assets/skins/sam/container.css" />
-
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/reset/reset-min.css" /> 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/fonts/fonts-min.css" /> 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/grids/grids-min.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/button/assets/button.css"> 
 
-<!-- Dependencies -->
+<!-- YUI Dependencies -->
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/element/element-beta-min.js"></script>
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/datasource/datasource-beta-min.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/dragdrop/dragdrop-min.js"></script> <!-- include "dragdrop" before "container" ! -->
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/dragdrop/dragdrop-min.js"></script> 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/container/container-min.js"></script>
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/button/button-beta-min.js"></script>
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/menu/menu-min.js"></script>
-
-<!-- OPTIONAL: Calendar (enables calendar editors) -->
-<script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/calendar/calendar-min.js"></script>
-
-<!-- Source files -->
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.0/build/datatable/datatable-beta-min.js"></script>
-
 
 <!-- Google gears -->
 <script type="text/javascript" src="lib/gears_init.js"></script>
 
 <!-- GearsInMotion -->
 <link rel="stylesheet" type="text/css" href="css/gearsinmotion.css"/>
-
 <script type="text/javascript" src="js/helpers.js"></script>
 <script type="text/javascript" src="js/gearsinmotion.js"></script>
 <script type="text/javascript" src="js/sql.js"></script>
 <script type="text/javascript" src="js/gim_datatable_by_sql.js"></script>
-<!--  or replace last 3 js files includes by : <script type="text/javascript" src="gim_standalone.js"></script>-->
 
 
 <script>
   if (!window.google || !google.gears) {
-    window.location.href = "http://gears.google.com/?action=install&message=Vous devez installer Google Gears" +
-                    "&return=http://localhost:3000/javascripts/tools/gearsinmotion/gearsinmotion.html";
+    window.location.href = "http://gears.google.com/?action=install&return="+window.location.href;
   }
-  
-
-	// Init the application
-	YAHOO.util.Event.addListener(window,'load', function() { GIM.init('test'); });
-
-	YAHOO.util.Event.addListener("showGIM", "click", GIM.toggle, GIM, true);
-
 </script>
 
  </head>
-
- <body style="background-color: #eee; overflow: hidden;" class='yui-skin-sam'>
-<button id="showGIM">show GIM</button>
+ <body style="background-color: #eee; overflow: hidden;" class="yui-skin-sam" onload="GIM.init('test');">
+	<button id="showGIM" onclick="GIM.toggle();">show GIM</button>
  </body>
 </html>

@@ -78,17 +78,13 @@ div#gim_dom_container span.yui-dt-paginator {
 	display:block;
 	width:100%;
 	padding:1px 0px;
-	//border-top:1px solid #103d81;
-	//border-bottom:1px solid #103d81;
 }
 
 div#gim_dom_container span#addRowButton {
 	margin-top:10px;
 }
 
-/* Menu contextuel */
-
-
+/* Context Menu  */
 div.gim_contextmenu {
 	padding:5px 10px;
 	background-color:#ffcccc;
@@ -109,7 +105,6 @@ div.gim_contextmenu div.bd ul li a{
 }
 
 /* Main GIM table */
-
 div.yui-skin-sam div#gim_dom_container table.yui-dt-table .table-name-header {
 	text-align:center;
 }
@@ -133,7 +128,7 @@ div.yui-skin-sam div#gim_dom_container table.yui-dt-table tbody tr:hover {
 }
 
 
-/* Boutons */
+/* Buttons */
 div#gim_dom_container #buttonCreateTable button,#addRowButton button,#addColButton button {
    padding-left:2em;
    background:url('../images/add.gif') 10% 50% no-repeat;
@@ -149,10 +144,7 @@ div#gim_dom_container #buttonExportSql, #buttonFreeQuery, #buttonCreateTable {
    margin-top: 15px;
 }
 
-
-
-/* Tableau de view element */
-
+/*  "view element" table */
 div#gim_dom_container .detail-table {
 	border:4px solid #103D81;
 	margin:10px auto;
