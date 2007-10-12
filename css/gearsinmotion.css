@@ -1,0 +1,181 @@
+
+/* Main Box inside the panel */
+div#gim_dom_container div#gim-container {
+   width: 100%;
+   margin: 0px auto;
+   height: 500px;
+}
+
+/* Main left menu */
+div#gim_dom_container div#gim-menu {
+	float: left;
+	border-right:1px solid #333333;
+	margin:10pt 5pt 10pt 10pt;
+	padding:10pt;
+	width:160pt;
+	height:80%;
+    border: 1px solid #aaa;
+	padding-top:80px;
+	background:url('../images/gim_header.png') no-repeat top left;
+}
+
+/* Hack for IE */
+* html div#gim_dom_container  div#gim-menu {
+	width:180pt;
+}
+
+div#gim_dom_container div#gim-page {
+	padding: 7pt 20pt 5pt 20pt;
+	width: 800px;
+	height:500px;
+	overflow:auto;
+}
+
+div#gim_dom_container div.gim-data {
+	padding: 0pt 0pt 10pt 0pt;
+}
+
+
+/* Menu */
+
+div#gim_dom_container table.gim-db-tables-display {
+	margin:10px auto;
+	font-family:arial;
+	font-size:13px;
+}
+
+div#gim_dom_container table.gim-db-tables-display td {
+	padding: 2px 5px;
+}
+
+div#gim_dom_container table.gim-db-tables-display td.gim-db-table-link {
+	padding-left:20px;
+	background:url('../images/table.png') 3px 8px no-repeat;
+}
+
+div#gim_dom_container table.gim-db-tables-display td.gim-db-drop-link {
+	padding-left: 30px;
+	background:url('../images/drop.png') 10px 5px no-repeat;
+}
+
+div.yui-skin-sam div#gim_dom_container table.gim-db-tables-display td.gim-db-table-link:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+div.yui-skin-sam  div#gim_dom_container table.gim-db-tables-display td.gim-db-drop-link:hover {
+	cursor:pointer;
+}
+
+div#gim_dom_container span#buttonChangeDB {
+	margin-bottom:10px;
+}
+
+
+/* Buttons and pagination links */
+
+div#gim_dom_container span.yui-dt-paginator {
+	background-color:#f9f9f9;
+	display:block;
+	width:100%;
+	padding:1px 0px;
+	//border-top:1px solid #103d81;
+	//border-bottom:1px solid #103d81;
+}
+
+div#gim_dom_container span#addRowButton {
+	margin-top:10px;
+}
+
+/* Menu contextuel */
+
+
+div.gim_contextmenu {
+	padding:5px 10px;
+	background-color:#ffcccc;
+	border:1px solid #ffaaaa;
+}
+
+div.gim_contextmenu a {
+	text-decoration:none;
+	color:black;
+}
+
+div.gim_contextmenu a:hover {
+	text-decoration:underline;
+}
+
+div.gim_contextmenu div.bd ul li a{
+   color: blue;
+}
+
+/* Main GIM table */
+
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table .table-name-header {
+	text-align:center;
+}
+
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table {
+	margin:10px auto;
+	font-family:arial;
+	font-size:13px;
+}
+
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table td:hover {
+	cursor:default;
+}
+
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table td.yui-dt-editable:hover {
+	cursor:url('../images/pen_m.cur'), text;
+}
+
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table tbody tr:hover {
+	background-color: #ffffaa;
+}
+
+
+/* Boutons */
+div#gim_dom_container #buttonCreateTable button,#addRowButton button,#addColButton button {
+   padding-left:2em;
+   background:url('../images/add.gif') 10% 50% no-repeat;
+}
+
+div#gim_dom_container #buttonExportSql button{
+   padding-left:2em;
+   background:url('../images/download.gif') 10% 50% no-repeat;
+}
+
+
+div#gim_dom_container #buttonExportSql, #buttonFreeQuery, #buttonCreateTable {
+   margin-top: 15px;
+}
+
+
+
+/* Tableau de view element */
+
+div#gim_dom_container .detail-table {
+	border:4px solid #103D81;
+	margin:10px auto;
+	background-color:#ffffff;
+	border: 4px solid #103d81;
+    border-collapse: collapse;
+}
+
+div#gim_dom_container .detail-table tbody td{
+	padding: 2px 5px;
+	border:1px solid #103D81;
+}
+
+div#gim_dom_container .detail-table thead{
+	color:#ffffff;
+	background-color:#103D81;
+}
+
+div#gim_dom_container .linked-elts-title{
+	font-size:15px;
+}
+
+div#gim_dom_container .linked-table{
+	display:none;
+}
+
