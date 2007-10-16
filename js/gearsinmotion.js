@@ -1,7 +1,8 @@
 /**
  *    GearsInMotion v0.2
+ *
+ *    http://code.google.com/p/gearsinmotion/
  */
-
 var GIM = {
    
    /**
@@ -19,12 +20,9 @@ var GIM = {
    },
    
    /**
-    * Creates the GIM panel
-    *       GIM.panel_container
+    * Creates the GIM panel : GIM.panel_container
     */
    initPanel: function() {
-      // Important to add class to body because modal mask apply to body
-      //YAHOO.util.Dom.addClass(document.body, 'yui-skin-sam');
       
       this.div_to_store_skin_sam_class = cn('div', {className: 'yui-skin-sam'});
       document.body.appendChild(this.div_to_store_skin_sam_class);
@@ -42,12 +40,8 @@ var GIM = {
       
       this.gim_dom_container.appendChild(gim_dom_container_ft);
 
-      //this.panel_visible = true;
-      var panel_width = 1150; //Math.floor(screen.width*85/100);
-
       this.panel_container = new YAHOO.widget.Panel('gim_panel',  
-            { width:panel_width+"px",
-              //fixedcenter:true, // will be removed after render to allow scrolling without centering
+            { width:"1150px",
               close:true, 
               draggable:true, 
               modal:true,
@@ -84,7 +78,7 @@ var GIM = {
      this.gim_page = cn('div', {id: 'gim-page'});
 	   this.gim_container.appendChild(this.gim_page);
 
-     // gim_data : div for the "main" datatable
+      // gim_data : div for the "main" datatable
 	   this.gim_data = cn('div', {className: 'gim-data'});
 	   
 	   this.gim_page.appendChild(this.gim_data);
@@ -147,12 +141,12 @@ var GIM = {
    
    
    // Display a query entered
-   freeQuery: function() {
-      /*var query = prompt('Please enter your sql query');
+   /*freeQuery: function() {
+      var query = prompt('Please enter your sql query');
       if (query) {
          this.displayTableBySql(query,[], this.gim_data);
-      }*/
-   },
+      }
+   },*/
    
    getRegExResult: function(query) {
       var result = query.match(/^select (([^, ]*)(, [^, ]*)*) from (([^, ]*)(, [^, ]*)*)/);
@@ -244,6 +238,9 @@ var GIM = {
 	   
 	   // Export to sql button
 	   new YAHOO.widget.Button({ label:"Export", id: "buttonExportSql", container: this.gim_menu, onclick: { fn: this.exportSql, scope: this } });
+      
+      var msg = cn('p', {className: 'gim-message'}, null, "Please visit <a href='http://code.google.com/p/gearsinmotion/' target='_new'>the GIM website</a> for any comment, bug report or feature request.");
+      this.gim_menu.appendChild(msg);
       
 	},
 	
@@ -386,7 +383,7 @@ var GIM = {
 };
 
 GIM.showLicense = function() {
-    var text = "Software License Agreement (BSD License)<br /><br />"+
+    var text = "Software License Agreement (New BSD License)<br /><br />"+
 
     "Copyright (c) 2007, Eric Abouaf, Samuel Dehouck, Maxime R&eacute;ty<br />"+
     "All rights reserved.<br /><br />"+

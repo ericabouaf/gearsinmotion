@@ -50,7 +50,7 @@ div#gim_dom_container table.gim-db-tables-display td {
 
 div#gim_dom_container table.gim-db-tables-display td.gim-db-table-link {
 	padding-left:20px;
-	background:url('../images/table.png') 3px 8px no-repeat;
+	background:url('../images/table.png') 3px 6px no-repeat;
 }
 
 div#gim_dom_container table.gim-db-tables-display td.gim-db-drop-link {
@@ -171,3 +171,13 @@ div#gim_dom_container .linked-table{
 	display:none;
 }
 
+.yui-skin-sam div#gim_dom_container table.yui-dt-table tbody tr td.yui-dt-col-id {
+   cursor: pointer;
+   font-weight:bold;
+}
+
+
+p.gim-message {
+   margin-top: 30px;
+   font-size: 8pt;
+}
