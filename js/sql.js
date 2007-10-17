@@ -118,7 +118,6 @@ GIM.listFieldInTable = function(tableName) {
    }
 
    var res = this.query('select * from sqlite_master where name=?',[tableName]);
-   
    var sql = res[0]["sql"];
    try {
       var regexpResults = sql.match(/^CREATE TABLE [^ ]*[ ]*\((.*)\)$/);
@@ -141,7 +140,9 @@ GIM.listFieldInTable = function(tableName) {
 
 
 GIM.insert = function(obj,tableName) {
-   var fields,simpleFields = this.listFieldInTable(tableName);
+   var temp = this.listFieldInTable(tableName);
+   
+   var fields = temp[0],simpleFields = temp[1];
    var queryParams = [];
    var questionMarks = [];
    for(var i = 0 ; i < fields.length ; i++) {
@@ -152,7 +153,6 @@ GIM.insert = function(obj,tableName) {
    var query = "insert into "+tableName+" values ("+questionMarks.join(',')+")";
    this.query(query, queryParams);
 };
-
 
 
 /**
@@ -176,7 +176,7 @@ GIM.exportTablesInSQL = function() {
             if( entries[k].hasOwnProperty(field) )
                queryParams.push('`'+entries[k][field]+'`');
          }
-         var query = 'insert into '+res[i]['name']+' value ('+queryParams.join(',')+')';
+         var query = 'insert into '+res[i]['name']+' values ('+queryParams.join(',')+')';
          sql_output += query+';\n';
       }
       
@@ -267,6 +267,8 @@ GIM.autoDiscoverLiaisons = function() {
       
    }
    this.liaisons = liaisons;
+   
+   console.log(this.liaisons);
 };
  
 GIM.pluralizeTableName = function(singularName) {
@@ -276,9 +278,70 @@ GIM.pluralizeTableName = function(singularName) {
    return singularName+'s';
 };
 
+
+// Handles the 'y' pluralize into ies
 GIM.singularizeTableName = function(pluralName) {
    if( pluralName.substr(-3,3) == 'ies' ) {
       return pluralName.substr(0,pluralName.length-3)+'y';
    }
    return pluralName.substr(0,pluralName.length-1);
+};
+
+GIM.dropTable = function(tableName) {
+	GIM.query("DROP TABLE IF EXISTS "+tableName+";");
+};
+
+/**
+ *
+ 
+ tableObj = {
+    name: "users",
+    fields: [
+      {id: "integer"},
+      {name: "varchar(255)"}
+    ]
+ }
+ 
+ */
+GIM.createTableFromJson = function(tableObj) {
+   
+   // Drop the table if exists
+	GIM.dropTable(tableObj.name);
+	
+	var fields = [];
+	for(var fieldName in tableObj.fields) {
+	   if( tableObj.fields.hasOwnProperty(fieldName) ) {
+	      fields.push(fieldName+" "+tableObj.fields[fieldName]);  
+	   }
+	}
+	
+	// Create the table
+	GIM.query("CREATE TABLE "+tableObj.name+" ("+fields.join(',')+");");
+	
+};
+
+GIM.populateTable = function(tableName, elements) {
+   for(var i = 0 ; i < elements.length ; i++) {
+      GIM.insert(elements[i],tableName);
+	}
+};
+
+/*
+
+*/
+GIM.populateDatabase = function(populatedTableList) {
+   
+   for(var i = 0; i < populatedTableList.length; i++) {
+      var populatedTable = populatedTableList[i];
+      
+      // Create the table
+      this.createTableFromJson(populatedTable);
+      
+      // Populate it
+      GIM.populateTable(populatedTable.name, populatedTable.elements);
+      
+      // Add the optional function
+      if(populatedTable.buildElementDom) GIM.elementDomFunctions[populatedTable.name] = populatedTable.buildElementDom;
+   }
+   
 };

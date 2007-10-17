@@ -5,6 +5,10 @@
  */
 var GIM = {
    
+   
+   elementDomFunctions: {},
+   
+   
    /**
     * Init function
     * params:
@@ -217,8 +221,8 @@ var GIM = {
 		   });
 
 	      YAHOO.util.Event.addListener(tdOperations, 'click', function() {
-	         if( confirm('destroy '+this.parentNode.tableName+' ?') ) {
-	            GIM.query('drop table '+this.parentNode.tableName);
+	         if( confirm('Drop table '+this.parentNode.tableName+' ?') ) {
+	            GIM.dropTable(this.parentNode.tableName);
 	            GIM.updateMenu();
 	         }
 	      });
@@ -271,8 +275,15 @@ var GIM = {
 
 	   var result = this.query('select * from '+tableName+' where id=?',[id])[0];
      
-	   // Display the selected element
-	   GIM._dataTableBySql_elt = new GIM.DataTableBySql('select * from '+tableName+' where id=?',[id], this.gim_data,tableName);
+	   if( YAHOO.lang.isFunction(GIM.elementDomFunctions[tableName]) ) {
+	      var f = GIM.elementDomFunctions[tableName];
+	      this.gim_data.innerHTML = "";
+	      this.gim_data.appendChild( f(result) );
+	   }
+	   else {
+   	   // Display the selected element
+   	   new GIM.DataTableBySql('select * from '+tableName+' where id=?',[id], this.gim_data,tableName);
+	   }
      
      GIM._dataTableBySql_manytomany = [];
      GIM._dataTableBySql_hasmany = [];

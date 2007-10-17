@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+ <head>
+  <title>GearsInMotion v0.2 demo</title>
+
+<!--CSS file (default YUI Sam Skin) -->
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.3.1/build/datatable/assets/skins/sam/datatable.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.1/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.1/build/reset/reset-min.css" /> 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.1/build/fonts/fonts-min.css" /> 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.1/build/grids/grids-min.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/button/assets/button.css"> 
+
+<!-- YUI Dependencies -->
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/element/element-beta-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/datasource/datasource-beta-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/container/container-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/button/button-beta-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/menu/menu-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/datatable/datatable-beta-min.js"></script>
+
+<!-- Google gears -->
+<script type="text/javascript" src="lib/gears_init.js"></script>
+
+<!-- GearsInMotion -->
+<link rel="stylesheet" type="text/css" href="css/gearsinmotion.css"/>
+<script type="text/javascript" src="js/helpers.js"></script>
+<script type="text/javascript" src="js/gearsinmotion.js"></script>
+<script type="text/javascript" src="js/sql.js"></script>
+<script type="text/javascript" src="js/gim_datatable_by_sql.js"></script>
+
+<!-- THE DEMO IS IN THIS FILE : -->
+<script type="text/javascript" src="js/demo.js"></script>
+
+<script>
+  if (!window.google || !google.gears) {
+    window.location.href = "http://gears.google.com/?action=install&return="+window.location.href;
+  }
+</script>
+
+ </head>
+ <body style="background-color: #eee; overflow: hidden;" class="yui-skin-sam">
+	<button id="showGIM" onclick="GIM.toggle();">show GIM</button>
+ </body>
+</html>
