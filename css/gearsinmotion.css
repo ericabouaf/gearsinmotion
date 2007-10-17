@@ -176,7 +176,9 @@ div#gim_dom_container .linked-table{
    font-weight:bold;
    background-image: url(../images/links.png);
    background-repeat: no-repeat;
-   background-position: 0px 2px;
+   background-position: 4px 4px;
+   padding-left:8px;
+   width:38px;
 }
 
 
