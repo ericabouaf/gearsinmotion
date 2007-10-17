@@ -115,11 +115,11 @@ div.yui-skin-sam div#gim_dom_container table.yui-dt-table {
 	font-size:13px;
 }
 
-div.yui-skin-sam div#gim_dom_container table.yui-dt-table td:hover {
+/*div.yui-skin-sam div#gim_dom_container table.yui-dt-table td:hover {
 	cursor:default;
-}
+}*/
 
-div.yui-skin-sam div#gim_dom_container table.yui-dt-table td.yui-dt-editable:hover {
+div.yui-skin-sam div#gim_dom_container table.yui-dt-table td.yui-dt-editable/*:hover*/ {
 	cursor:url('../images/pen_m.cur'), text;
 }
 
@@ -174,6 +174,9 @@ div#gim_dom_container .linked-table{
 .yui-skin-sam div#gim_dom_container table.yui-dt-table tbody tr td.yui-dt-col-id {
    cursor: pointer;
    font-weight:bold;
+   background-image: url(../images/links.png);
+   background-repeat: no-repeat;
+   background-position: 0px 2px;
 }
 
 
